@@ -25,7 +25,7 @@ cache:
   - $(HOMEDRIVE)$(HOMEPATH)\.m2 -> .appveyor.yml
 
 install:
-  - ps: cinst maven -i --version $env:MVN_VERSION
+  - ps: cinst maven -i --allow-empty-checksums --version $env:MVN_VERSION
 
 before_build:
   - cmd: java -Xmx32m -version

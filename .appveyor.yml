@@ -5,15 +5,9 @@ environment:
 
   matrix:
     - platform: x86
-      JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.6.0
-      MVN_VERSION: 3.2.3
-    - platform: x86
       JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.7.0
     - platform: x86
       JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.8.0
-    - platform: x64
-      JAVA_HOME: $(ProgramFiles)\Java\jdk1.6.0 
-      MVN_VERSION: 3.2.3
     - platform: x64
       JAVA_HOME: $(ProgramFiles)\Java\jdk1.7.0
     - platform: x64
@@ -25,7 +19,7 @@ cache:
   - $(HOMEDRIVE)$(HOMEPATH)\.m2 -> .appveyor.yml
 
 install:
-  - ps: cinst maven -i --allow-empty-checksums --version $env:MVN_VERSION
+  - ps: cinst maven -i --version $env:MVN_VERSION
 
 before_build:
   - cmd: java -Xmx32m -version

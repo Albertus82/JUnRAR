@@ -28,8 +28,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import junrar.exception.RarException;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
@@ -37,6 +35,8 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
+
+import junrar.exception.RarException;
 
 /**
  * DOCUMENT ME
@@ -143,9 +143,9 @@ public class JUnRarTest {
 			assertTrue(extractedFile.exists());
 
 			is1 = this.getClass().getResourceAsStream("comedia.txt");
-			String originalText = IOUtils.toString(is1);
+			String originalText = IOUtils.toString(is1, "UTF-8");
 			is1.close();
-			String extractedText = FileUtils.readFileToString(extractedFile);
+			String extractedText = FileUtils.readFileToString(extractedFile, "UTF-8");
 			assertEquals(originalText, extractedText);
 
 			extractedDir = new File(tempFolder, "petrarca");
@@ -154,9 +154,9 @@ public class JUnRarTest {
 			assertTrue(extractedFile.exists());
 
 			is2 = this.getClass().getResourceAsStream("canzoniere.txt");
-			originalText = IOUtils.toString(is2);
+			originalText = IOUtils.toString(is2, "UTF-8");
 			is2.close();
-			extractedText = FileUtils.readFileToString(extractedFile);
+			extractedText = FileUtils.readFileToString(extractedFile, "UTF-8");
 			assertEquals(originalText, extractedText);
 		}
 		catch (RarException re) {

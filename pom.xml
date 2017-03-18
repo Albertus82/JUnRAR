@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>junrar</groupId>
 	<artifactId>junrar</artifactId>
 	<packaging>jar</packaging>
-	<version>0.9-albertus</version>
+	<version>0.8.0</version>
 	<name>JUnRAR</name>
 	<description>RAR decompression library in plain Java</description>
 	<url>https://github.com/Albertus82/JUnrar</url>
@@ -22,12 +23,6 @@
 		</license>
 	</licenses>
 
-	<scm>
-		<connection>scm:git:git@github.com:albertus82/junrar.git</connection>
-		<developerConnection>scm:git:git@github.com:albertus82/junrar.git</developerConnection>
-		<url>git@github.com:albertus82/junrar.git</url>
-	</scm>
-
 	<developers>
 		<developer>
 			<id>edmund_wagner</id>
@@ -37,15 +32,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.2</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-vfs2</artifactId>
-			<version>2.0</version>
+			<version>2.1</version>
 		</dependency>
 
 		<!-- Test -->
@@ -58,7 +47,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
+			<version>2.5</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -76,15 +65,13 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>
-								junrar.JUnRarTest
-							</mainClass>
 							<packageName>
 								junrar
 							</packageName>
 							<addClasspath>true</addClasspath>
 							<addExtensions />
 							<classpathPrefix />
+							<addDefaultImplementationEntries />
 						</manifest>
 						<manifestEntries>
 							<mode>development</mode>
@@ -131,11 +118,5 @@
 			</build>
 		</profile>
 	</profiles>
-
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
 
 </project>

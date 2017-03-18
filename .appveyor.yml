@@ -1,0 +1,34 @@
+clone_depth: 50
+
+environment:
+  MVN_VERSION: 3.3.9.2
+
+  matrix:
+    - platform: x86
+      JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.6.0
+    - platform: x86
+      JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.7.0
+    - platform: x86
+      JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.8.0
+    - platform: x64
+      JAVA_HOME: $(ProgramFiles)\Java\jdk1.6.0      
+    - platform: x64
+      JAVA_HOME: $(ProgramFiles)\Java\jdk1.7.0
+    - platform: x64
+      JAVA_HOME: $(ProgramFiles)\Java\jdk1.8.0
+
+cache:
+  - $(ChocolateyInstall)\lib -> .appveyor.yml
+  - $(ChocolateyInstall)\bin -> .appveyor.yml
+  - $(HOMEDRIVE)$(HOMEPATH)\.m2 -> .appveyor.yml
+
+install:
+  - ps: cinst maven -i --version $env:MVN_VERSION
+
+before_build:
+  - cmd: java -Xmx32m -version
+  - cmd: javac -J-Xmx32m -version
+  - cmd: mvn -version
+
+build_script:
+  - mvn clean package

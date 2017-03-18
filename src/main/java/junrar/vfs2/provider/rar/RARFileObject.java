@@ -18,9 +18,7 @@ package junrar.vfs2.provider.rar;
 
 import java.io.InputStream;
 import java.util.HashSet;
-
-import junrar.Archive;
-import junrar.rarfile.FileHeader;
+import java.util.Set;
 
 import org.apache.commons.vfs2.FileName;
 import org.apache.commons.vfs2.FileObject;
@@ -29,13 +27,16 @@ import org.apache.commons.vfs2.FileType;
 import org.apache.commons.vfs2.provider.AbstractFileName;
 import org.apache.commons.vfs2.provider.AbstractFileObject;
 
+import junrar.Archive;
+import junrar.rarfile.FileHeader;
+
 
 /**
  * A file in a RAR file system.
  * 
  * @author <a href="http://www.rogiel.com">Rogiel</a>
  */
-public class RARFileObject extends AbstractFileObject implements FileObject {
+public class RARFileObject extends AbstractFileObject<RARFileSystem> implements FileObject {
 	/**
 	 * The TFile.
 	 */
@@ -44,7 +45,7 @@ public class RARFileObject extends AbstractFileObject implements FileObject {
 	@SuppressWarnings("unused")
 	private final RARFileSystem fs;
 
-	private final HashSet<String> children = new HashSet<String>();
+	private final Set<String> children = new HashSet<String>();
 
 	protected RARFileObject(AbstractFileName name, Archive archive,
 			FileHeader header, RARFileSystem fs) throws FileSystemException {

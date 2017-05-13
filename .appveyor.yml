@@ -3,7 +3,7 @@ version: '{build}'
 clone_depth: 50
 
 environment:
-  MVN_VERSION: 3.3.9.2
+  MVN_VERSION: 3.5.0
 
   matrix:
     - platform: x86
@@ -18,12 +18,12 @@ environment:
 cache:
   - $(ChocolateyInstall)\lib -> .appveyor.yml
   - $(ChocolateyInstall)\bin -> .appveyor.yml
-  - $(HOMEDRIVE)$(HOMEPATH)\.m2 -> .appveyor.yml
 
 install:
   - ps: cinst maven -i --version $env:MVN_VERSION
 
 before_build:
+  - cmd: refreshenv
   - cmd: java -Xmx32m -version
   - cmd: javac -J-Xmx32m -version
   - cmd: mvn -version

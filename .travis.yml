@@ -11,6 +11,3 @@ matrix:
     - os: linux
       jdk: openjdk6
     - os: osx
-
-before_install:
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install maven; fi;

@@ -3,7 +3,7 @@ version: '{build}'
 clone_depth: 50
 
 environment:
-  MVN_VERSION: 3.5.0
+  MVN_VERSION: 3.5.2
 
   matrix:
     - platform: x86
@@ -14,6 +14,8 @@ environment:
       JAVA_HOME: $(ProgramFiles)\Java\jdk1.7.0
     - platform: x64
       JAVA_HOME: $(ProgramFiles)\Java\jdk1.8.0
+    - platform: x64
+      JAVA_HOME: $(ProgramFiles)\Java\jdk9
 
 cache:
   - $(ChocolateyInstall)\lib -> .appveyor.yml

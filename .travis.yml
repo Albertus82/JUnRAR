@@ -8,8 +8,8 @@ matrix:
       jdk: openjdk7
     - os: linux
       jdk: openjdk6
-      maven: 
-  		version: 3.2.5
+      maven:
+        version: 3.2.5
     - os: osx
 
 addons:

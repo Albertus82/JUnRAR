@@ -1,8 +1,8 @@
 JUnRAR
 ======
 
-[![Build Status](https://travis-ci.org/Albertus82/JUnRAR.svg?branch=master)](https://travis-ci.org/Albertus82/JUnRAR)
-[![Build status](https://ci.appveyor.com/api/projects/status/github/Albertus82/JUnRAR?branch=master&svg=true)](https://ci.appveyor.com/project/Albertus82/JUnRAR)
+[![Build Status](https://travis-ci.org/albertus82/junrar.svg?branch=master)](https://travis-ci.org/albertus82/junrar)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/albertus82/junrar?branch=master&svg=true)](https://ci.appveyor.com/project/albertus82/junrar)
 
 #### Plain Java UnRAR Utility. Original project by [Edmund Wagner](https://github.com/edmund-wagner/junrar) (formerly on [SourceForge](https://sourceforge.net)).
 

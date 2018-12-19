@@ -3,27 +3,19 @@ version: '{build}'
 clone_depth: 50
 
 environment:
-  MVN_VERSION: 3.5.2
-
   matrix:
     - platform: x86
       JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.7.0
+      MAVEN_OPTS: -Dhttps.protocols=TLSv1.2
+    - platform: x64
+      JAVA_HOME: $(ProgramFiles)\Java\jdk1.7.0
+      MAVEN_OPTS: -Dhttps.protocols=TLSv1.2
     - platform: x86
       JAVA_HOME: ${ProgramFiles(x86)}\Java\jdk1.8.0
     - platform: x64
-      JAVA_HOME: $(ProgramFiles)\Java\jdk1.7.0
-    - platform: x64
       JAVA_HOME: $(ProgramFiles)\Java\jdk1.8.0
     - platform: x64
-      JAVA_HOME: $(ProgramFiles)\Java\jdk9
-
-cache:
-  - $(ChocolateyInstall)\lib -> .appveyor.yml
-  - $(ChocolateyInstall)\bin -> .appveyor.yml
-
-install:
-  - ps: cinst maven -i --version $env:MVN_VERSION
-  - cmd: PATH %ChocolateyInstall%\lib\maven\apache-maven-%MVN_VERSION%\bin;%PATH%
+      JAVA_HOME: $(ProgramFiles)\Java\jdk11
 
 before_build:
   - cmd: java -Xmx32m -version
@@ -31,4 +23,4 @@ before_build:
   - cmd: mvn -version
 
 build_script:
-  - mvn clean package
+  - mvn clean verify -V
